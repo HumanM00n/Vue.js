@@ -3,15 +3,11 @@ const App = {
     data() {
 
         return {
-            message: "Hola que tal"
+            /* Création de variable */ 
+            showHome: false,
+            showCreateForm: true,
+            showStudentsList: false,
         }
-    },
-    methods: {
-
-    },
-
-    mounted() { /* Méthode du cycle de vie de notre objet */
-    
     },
 }
 
