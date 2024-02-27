@@ -34,12 +34,12 @@
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Accueil
+                            <a class="nav-link" :class="{ active: showHome }" href="#" @click.prevent="gotoHome()">Accueil <!-- ':' Vuet dire qu'on veut ajouter une class qui dépendra d'une condition -->
                                 <span class="visually-hidden">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gestion des employés</a>
+                            <a class="nav-link" :class="{ active: showCreateForm|| showStudentsList }" href="#" @click.prevent="gotoStudentsList()">Gestion des étudiants</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -100,17 +100,16 @@
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary "><i class="fas fa-save"></i>
                                             Créer</button>
-                                        <button type="button" class="btn btn-danger ms-2"><i
-                                                class="fas fa-backspace"></i> Retouner à la liste</button>
+                                        <button type="button" class="btn btn-danger ms-2" @click.prevent="gotoStudentsList()"><i class="fas fa-backspace"></i> Retouner à la liste</button>
                                     </div>
                                 </form>
                             </div>
 
-                            <div v-f="showCreateForm">
+                            <div v-f="showStudentsList">
                                 <div class="d-flex mb-2">
                                     <h5 class="card-title flex-grow-1">Liste des étudiants</h5>
                                     <div class="d-flex ">
-                                        <a href="" class="btn btn-link d-block"> <i class="fas fa-user-plus"></i>
+                                        <a href="#" @click.prevent="gotoCreateForm()" class="btn btn-link d-block"> <i class="fas fa-user-plus"></i>
                                             Ajouter un nouvel étudiant</a>
                                         <input type="text" name="" id="" class="form-control">
                                     </div>
